@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-router之导航守卫（Navigation Guards) | kwi的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Cooper
+,
+this is no time for cautious
+!">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f74a1f92.js" as="script"><link rel="preload" href="/assets/js/2.7f4d780a.js" as="script"><link rel="preload" href="/assets/js/13.bc848fb8.js" as="script"><link rel="prefetch" href="/assets/js/10.7028b0a5.js"><link rel="prefetch" href="/assets/js/11.24e021f1.js"><link rel="prefetch" href="/assets/js/12.50f0dbf5.js"><link rel="prefetch" href="/assets/js/14.63ffa326.js"><link rel="prefetch" href="/assets/js/3.7762399e.js"><link rel="prefetch" href="/assets/js/4.1b609518.js"><link rel="prefetch" href="/assets/js/5.455d75bf.js"><link rel="prefetch" href="/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/assets/js/7.f39602d3.js"><link rel="prefetch" href="/assets/js/8.24b682ce.js"><link rel="prefetch" href="/assets/js/9.b9c9c8ce.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/kwiImg.jpg" alt="kwi的博客" class="logo"> <span class="site-name can-hide">kwi的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="三件套" class="dropdown-title"><span class="title">三件套</span> <span class="arrow down"></span></button> <button type="button" aria-label="三件套" class="mobile-dropdown-title"><span class="title">三件套</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/threesword/html/" class="nav-link">
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/threesword/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/threesword/javascript/" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  vue全家桶
+</a></div><div class="nav-item"><a href="/ miniprogram/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/android/" class="nav-link">
+  个人项目
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  小记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="三件套" class="dropdown-title"><span class="title">三件套</span> <span class="arrow down"></span></button> <button type="button" aria-label="三件套" class="mobile-dropdown-title"><span class="title">三件套</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/threesword/html/" class="nav-link">
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/threesword/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/threesword/javascript/" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  vue全家桶
+</a></div><div class="nav-item"><a href="/ miniprogram/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/android/" class="nav-link">
+  个人项目
+</a></div><div class="nav-item"><a href="/interview/" class="nav-link">
+  小记
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>vue-router</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/notes/note1_NavigationGuards.html" aria-current="page" class="active sidebar-link">vue-router之导航守卫（Navigation Guards)</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-router之导航守卫-navigation-guards"><a href="#vue-router之导航守卫-navigation-guards" class="header-anchor">#</a> vue-router之导航守卫（Navigation Guards)</h1> <h2 id="守卫分类-3类"><a href="#守卫分类-3类" class="header-anchor">#</a> 守卫分类（3类)</h2> <ol><li>全局守卫：在路由配置上定义</li> <li>路由独享守卫：在路由配置上定义</li> <li>组件内守卫：在组件内部定义</li></ol> <h2 id="全局守卫"><a href="#全局守卫" class="header-anchor">#</a> 全局守卫</h2> <p>快速记忆：2个卫士持有1把钩子🪝</p> <ol><li><strong>beforeEach(to,from,next): 全局前置守卫</strong><br>
+to表示往哪里去<br>
+from表示当前要离开在的路由<br>
+next()控制放不放行？，往哪里放行？<br>
+next有4种方法：
+<ul><li>next() 此守卫放行，但是能不能去往其他路由，还要看别的守卫是否也放行。</li> <li>next(fasle) 此守卫不放行，即中断当前导航，即使用户手动点击后退按钮也会重置到当前所在的路由。</li> <li>next('home') 可以自己往()中传递路由，也就是可以决定守卫往哪里的路由放行。</li> <li>next(error) 往next中传递一个Error实例，此守卫不放行，且error会被传递给router.onError()</li></ul></li></ol> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">//</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>   
+</code></pre></div><p>注：next()只能被严格调用一次，除非在if , else等逻辑路径不重叠的情况下能被调用多次</p> <ol start="2"><li><p><strong>beforeResolve(to,from,next): 全局解析守卫</strong><br>
+用处：在 beforeRouteEnter 调用之后，导航被确认之前，同时在所有组件内守卫和异步路由组件被解析之后调用</p></li> <li><p><strong>afterEach(to,from): 全局后置钩子</strong><br>
+已经进入目标路由了，所以没有next（）参数<br>
+用处：类似于控制跳转后滚动条回到顶部</p></li></ol> <div class="language-js extra-class"><pre class="language-js"><code>router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>  
+    <span class="token comment">// 跳转之后滚动条回到顶部  </span>
+    window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="路由独享守卫"><a href="#路由独享守卫" class="header-anchor">#</a> 路由独享守卫</h2> <ol><li>beforeEnter(to,from,next): 和beforeEach一样接受3个参数，直接在路由配置处定义</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">routes</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">component</span><span class="token operator">:</span> Foo<span class="token punctuation">,</span>
+      <span class="token function-variable function">beforeEnter</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// ...</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="组件内守卫-3个"><a href="#组件内守卫-3个" class="header-anchor">#</a> 组件内守卫（3个）</h2> <p>均接受3个参数(to, from, next)</p> <ol><li><strong>beforeRouteEnter(to, from, next)</strong> <ul><li>无法获取this，因为此时组件还没有被创立，但是可以通过往next传入回调的方式来访问this。beforeRouteEnter是唯一一个可以往next里面传入回调的守卫。</li> <li>在渲染该组件的对应路由被confirm前调用。</li></ul></li> <li><strong>beforeRouteUpdate(to, from, next)</strong> <ul><li>能获取this</li> <li>对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。即Foo组件被复用时，调用beforeRouteUpdate</li> <li>此钩子调用后才调用beforeResolve全局解析守卫，因为在此之前beforeRouteEnter组件还没有被创建，而beforeResolve需要组件被解析之后才能调用。</li></ul></li> <li><strong>beforeRouteLeave</strong> <ul><li>可以获取this，离开组件时候对应路由时候使用。</li> <li>用途：通常用来禁止用户在还未保存修改前突然离开</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">beforeRouteLeave</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> answer <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token string">'您的数据还未保存！'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>answer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <h2 id="完整导航解析流程"><a href="#完整导航解析流程" class="header-anchor">#</a> 完整导航解析流程</h2> <ol><li>导航被触发。</li> <li>在失活的组件里调用 beforeRouteLeave 守卫。</li> <li>调用全局的 beforeEach 守卫。</li> <li>在重用的组件里调用 beforeRouteUpdate 守卫。</li> <li>在路由配置里调用 beforeEnter。</li> <li>解析异步路由组件。</li> <li>在被激活的组件里调用 beforeRouteEnter。</li> <li>调用全局的 beforeResolve 守卫 (2.5+)。</li> <li>导航被确认。</li> <li>调用全局的 afterEach 钩子。</li> <li>触发 DOM 更新。</li> <li>调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入。</li></ol> <p><strong>官方文档链接：<a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html" target="_blank" rel="noopener noreferrer">https://router.vuejs.org/zh/guide/advanced/navigation-guards.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f74a1f92.js" defer></script><script src="/assets/js/2.7f4d780a.js" defer></script><script src="/assets/js/13.bc848fb8.js" defer></script>
+  </body>
+</html>
