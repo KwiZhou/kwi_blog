@@ -8,9 +8,9 @@ module.exports=[{ text: "主页", link: "/" },
     ]
 },
 { text: "vue全家桶", link: "/vue/" ,},
-{ text: "小程序", link: "/ miniprogram/" },
-{ text: "个人项目", link: "/android/" },
-{ text: "小记", link: "/interview/" ,
+{ text: "uni-app", link: "/uni-app/" },
+{ text: "个人项目", link: "/personal_project/" },
+{ text: "小记", link: "/xiaoji/" ,
 },
 
 ]
