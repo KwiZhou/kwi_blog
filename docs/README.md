@@ -1,6 +1,9 @@
 ---
 home: true
-heroImage: /images/kwiImg.jpg
-actionText: 就此开始 →
-actionLink: /vue/
+bgImage: '/images/bg_img.jpg'
+bgImageStyle: {
+  height: '450px'
+}
+
+
 ---

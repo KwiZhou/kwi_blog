@@ -1,10 +1,10 @@
 module.exports = [
     {
-      title:'xiaoji',
+      title:'网络',
       collapsable: true,//自动折叠sidebar
       sidebarDepth:0,//sidebar不提取二级标题
       children:[
-        '/xiaoji/notes/note1_https',
+        '/internet/notes/note1_https',
       ]
      
     }

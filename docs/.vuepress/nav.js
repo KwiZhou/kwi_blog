@@ -1,16 +1,18 @@
-module.exports=[{ text: "主页", link: "/" },
-{
-    text: "三件套",
-    items: [
-        { text: "html", link: "/threesword/html/" },
-        { text: "css", link: "/threesword/css/" },
-        { text: "javascript", link: "/threesword/javascript/" }
+module.exports = [
+    { text: '首页', link: '/', icon: 'reco-home' },
+    { text: '时间线', link: '/timeline/', icon: 'reco-date' },
+    { text: 'Contact',  icon: 'reco-message',
+    items:[
+        {
+           text:'GitHub',
+           link:'https://github.com/KwiZhou',
+           icon:'reco-github'
+        },
+        {
+           text:'语雀',
+           link:'https://www.yuque.com/dizibuyuanlaitalinjianfangzi',
+           icon:'reco-other'
+        }
     ]
-},
-{ text: "vue全家桶", link: "/vue/" ,},
-{ text: "uni-app", link: "/uni-app/" },
-{ text: "个人项目", link: "/personal_project/" },
-{ text: "小记", link: "/xiaoji/" ,
-},
-
+    }
 ]

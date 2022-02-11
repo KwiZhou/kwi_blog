@@ -1,4 +1,12 @@
-# vue-router之导航守卫（Navigation Guards)
+---
+title: vue-router之导航守卫（Navigation Guards)
+date: 2022-1-24
+sidebar: 'auto'
+categories:
+ - vue
+tags:
+ - vue-router
+---
 ## 守卫分类（3类)
 1. 全局守卫：在路由配置上定义
 2. 路由独享守卫：在路由配置上定义
