@@ -39,7 +39,7 @@ module.exports = {
         authorAvatar: '/images/kwiImg.jpg',
         nav: require('./nav'),
         //侧边栏
-        sidebar: require('./sidebar'),
+       // sidebar: require('./sidebar'),
         // 备案
         record: '浙ICP备2022003568号',
         recordLink: 'https://beian.miit.gov.cn/#/Integrated/index',
